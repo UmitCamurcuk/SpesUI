@@ -1,0 +1,7 @@
+// Auth Codes
+1010 - Login success
+1011 - Login Username Error
+1012 - Login Password Error
+
+
+
