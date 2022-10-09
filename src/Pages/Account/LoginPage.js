@@ -3,16 +3,19 @@ import { Avatar, Button, Card, CardActions, CardContent, Grid, TextField } from 
 import LoginIcon from '@mui/icons-material/Login';
 import LockIcon from '@mui/icons-material/Lock';
 import Toastify from '../../Components/Toastify';
-import {Login} from '../../Scripts/Auth'
+import { useDispatch } from 'react-redux'
+import { signInUser } from '../../store/features/AuthSlice'
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setpassword] = useState('');
-
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const LoginHandle = () => {
-        Login({ "UserName": username, "Password": password})
-    
+        dispatch(signInUser({ username, password }))
+        navigate('/');
     }
 
     return (
